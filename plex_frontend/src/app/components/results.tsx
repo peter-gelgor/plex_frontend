@@ -1,7 +1,19 @@
 import { Button } from "@mui/material";
-import { ReactElement, JSXElementConstructor, ReactNode, ReactPortal, Key } from "react"
+import { Key } from "react"
 
-export default function Results(props: any) {
+interface Result {
+    title: string;
+    size: string;
+    seeds: string;
+    url: string;
+}
+
+interface ResultProps {
+    data: Result[];
+    download: (url: string) => void;
+}
+
+export default function Results(props: ResultProps) {
     const {data, download} = props;
     console.log(data);
     return (
