@@ -39,15 +39,17 @@ export default function Results(props: ResultProps) {
                             <td>{val.size}</td>
                             <td>{val.seeds}</td>
                             <td>
-                                <Button
-                                    variant="contained"
-                                    onClick={() => {
-                                        console.log("would go to url", val.url);
-                                        download(val.url);
-                                    }}
-                                >
-                                    Download
-                                </Button>
+                                {!val.title.includes("No results") && (
+                                    <Button
+                                        variant="contained"
+                                        onClick={() => {
+                                            console.log("would go to url", val.url);
+                                            download(val.url);
+                                        }}
+                                    >
+                                        Download
+                                    </Button>
+                                )}
                             </td>
                         </tr>
                     );
